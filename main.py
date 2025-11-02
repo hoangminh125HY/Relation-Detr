@@ -1,5 +1,8 @@
+import sys, os
+sys.path.insert(0, "/kaggle/working/Relation-Detr")
 import argparse
 import datetime
+
 import os
 import pprint
 import re
@@ -19,8 +22,7 @@ from util.group_by_aspect_ratio import GroupedBatchSampler, create_aspect_ratio_
 from util.lazy_load import Config
 from util.misc import default_setup, encode_labels, fixed_generator, seed_worker
 from util.utils import HighestCheckpoint, load_checkpoint, load_state_dict
-import sys, os
-sys.path.insert(0, "/kaggle/working/Relation-Detr")
+
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Train a detector")

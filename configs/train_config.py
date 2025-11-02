@@ -4,12 +4,6 @@ from torch import optim
 from datasets.coco import CocoDetection
 from transforms import presets
 from optimizer import param_dict
-import importlib.util
-spec = importlib.util.spec_from_file_location("datasets.coco", "/kaggle/working/Relation-Detr/datasets/coco.py")
-coco = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(coco)
-
-CocoDetection = coco.CocoDetection
 # Commonly changed training configurations
 num_epochs = 12   # train epochs
 batch_size = 4    # total_batch_size = #GPU x batch_size
@@ -23,7 +17,7 @@ output_dir = None  # path to save checkpoints, default for None: checkpoints/{mo
 find_unused_parameters = False  # useful for debugging distributed training
 
 # define dataset for train
-coco_path = "data/coco"  # /PATH/TO/YOUR/COCODIR
+coco_path = "/kaggle/input/ratdts/MD.v1i.coco"  # /PATH/TO/YOUR/COCODIR
 train_dataset = CocoDetection(
     img_folder=f"/kaggle/input/ratdts/MD.v1i.coco/train/img",
     ann_file=f"/kaggle/input/ratdts/MD.v1i.coco/train/_annotations.coco.json",
