@@ -133,7 +133,7 @@ def test_on_dataset():
 
     # get evaluation results from json file
     if args.model_config is None or args.show_dir and accelerator.is_main_process:
-        coco_dt = loadRes(COCO(f"{args.coco_path}/annotations/instances_{args.subset}2017.json"), args.result)
+        coco_dt = loadRes(COCO(f"/kaggle/input/ratdts/MD.v1i.coco/test/_annotations.coco.json"), args.result)
 
     # if not given model, evaluate COCO metric on predicted json results
     if args.model_config is None and accelerator.is_main_process:
