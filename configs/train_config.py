@@ -4,6 +4,7 @@ from torch import optim
 from datasets.coco import CocoDetection
 from transforms import presets
 from optimizer import param_dict
+import importlib.util
 spec = importlib.util.spec_from_file_location("datasets.coco", "/kaggle/working/Relation-Detr/datasets/coco.py")
 coco = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(coco)
