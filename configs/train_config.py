@@ -36,7 +36,7 @@ model_path = "configs/relation_detr/relation_detr_resnet50_800_1333.py"
 # specify a checkpoint folder to resume, or a pretrained ".pth" to finetune, for example:
 # checkpoints/relation_detr_resnet50_800_1333/train/2024-03-22-09_38_50
 # checkpoints/relation_detr_resnet50_800_1333/train/2024-03-22-09_38_50/best_ap.pth
-resume_from_checkpoint = "/kaggle/input/checkpoints43/checkpoints_43"
+resume_from_checkpoint = "/kaggle/input/checkpoints-43/checkpoints_43"
 
 learning_rate = 1e-4  # initial learning rate
 optimizer = optim.AdamW(lr=learning_rate, weight_decay=1e-4, betas=(0.9, 0.999))
