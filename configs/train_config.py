@@ -17,16 +17,16 @@ output_dir = None  # path to save checkpoints, default for None: checkpoints/{mo
 find_unused_parameters = False  # useful for debugging distributed training
 
 # define dataset for train
-coco_path = "/kaggle/input/ratdts/MD.v1i.coco"  # /PATH/TO/YOUR/COCODIR
+coco_path = "/kaggle/input/uavdts/UAV.v2i.coco"  # /PATH/TO/YOUR/COCODIR
 train_dataset = CocoDetection(
-    img_folder=f"/kaggle/input/ratdts/MD.v1i.coco/train/img",
-    ann_file=f"/kaggle/input/ratdts/MD.v1i.coco/train/_annotations.coco.json",
+    img_folder=f"/kaggle/input/uavdts/UAV.v2i.coco/train/img",
+    ann_file=f"/kaggle/input/uavdts/UAV.v2i.coco/train/_annotations.coco.json",
     transforms=presets.detr,  # see transforms/presets to choose a transform
     train=True,
 )
 test_dataset = CocoDetection(
-    img_folder=f"/kaggle/input/ratdts/MD.v1i.coco/valid/img",
-    ann_file=f"/kaggle/input/ratdts/MD.v1i.coco/valid/_annotations.coco.json",
+    img_folder=f"/kaggle/input/uavdts/UAV.v2i.coco/valid/img",
+    ann_file=f"/kaggle/input/uavdts/UAV.v2i.coco/valid/_annotations.coco 10.02.52.json",
     transforms=None,  # the eval_transform is integrated in the model
 )
 
