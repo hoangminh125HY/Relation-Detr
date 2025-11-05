@@ -5,7 +5,7 @@ from datasets.coco import CocoDetection
 from transforms import presets
 from optimizer import param_dict
 # Commonly changed training configurations
-num_epochs = 12   # train epochs
+num_epochs = 7   # train epochs
 batch_size = 2    # total_batch_size = #GPU x batch_size
 num_workers = 4   # workers for pytorch DataLoader
 pin_memory = True # whether pin_memory for pytorch DataLoader
@@ -36,7 +36,7 @@ model_path = "configs/relation_detr/relation_detr_resnet50_800_1333.py"
 # specify a checkpoint folder to resume, or a pretrained ".pth" to finetune, for example:
 # checkpoints/relation_detr_resnet50_800_1333/train/2024-03-22-09_38_50
 # checkpoints/relation_detr_resnet50_800_1333/train/2024-03-22-09_38_50/best_ap.pth
-resume_from_checkpoint = None
+resume_from_checkpoint = "/kaggle/input/checkpoints43/checkpoints_43"
 
 learning_rate = 1e-4  # initial learning rate
 optimizer = optim.AdamW(lr=learning_rate, weight_decay=1e-4, betas=(0.9, 0.999))
