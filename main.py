@@ -88,7 +88,7 @@ def update_checkpoint_path(cfg: Config):
             cfg.resume_from_checkpoint = folders[-1]
         else:
             # if there is not saved checkpoints, do not resume
-            cfg.resume_from_checkpoint = "/kaggle/working/checkpoints32_relation_32"
+            cfg.resume_from_checkpoint = None
 
     return cfg
 
