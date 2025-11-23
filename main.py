@@ -124,7 +124,7 @@ def train():
     # Khi resume từ checkpoint ở /kaggle/input, KHÔNG được ghi log ở đó.
     # Chỉ load weight, còn log chuyển sang /kaggle/working
     if cfg.resume_from_checkpoint and cfg.resume_from_checkpoint.startswith("/kaggle/input"):
-        cfg.resume_from_checkpoint = None  # chỉ load weights trong main code
+        cfg.resume_from_checkpoint = "/kaggle/input/ckp27-resnet50-rat/ckp27_relation_detr_rs50_27"  # chỉ load weights trong main code
     default_setup(args, cfg, accelerator)
     logger = get_logger(os.path.basename(os.getcwd()) + "." + __name__)
 
