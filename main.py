@@ -117,6 +117,14 @@ def train():
         kwargs_handlers=[kwargs],
     )
     accelerator.init_trackers("det_train")
+    # Fix: redirect logging/output_dir to a writable directory
+    if cfg.output_dir is None or cfg.output_dir.startswith("/kaggle/input"):
+        cfg.output_dir = "/kaggle/working/relation_detr_logs"
+
+    # Khi resume từ checkpoint ở /kaggle/input, KHÔNG được ghi log ở đó.
+    # Chỉ load weight, còn log chuyển sang /kaggle/working
+    if cfg.resume_from_checkpoint and cfg.resume_from_checkpoint.startswith("/kaggle/input"):
+        cfg.resume_from_checkpoint = None  # chỉ load weights trong main code
     default_setup(args, cfg, accelerator)
     logger = get_logger(os.path.basename(os.getcwd()) + "." + __name__)
 
