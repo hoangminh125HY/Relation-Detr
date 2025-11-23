@@ -105,7 +105,7 @@ def train():
     project_config = ProjectConfiguration(
         project_dir=cfg.output_dir, total_limit=5, automatic_checkpoint_naming=True
     )
-    tensorboard_tracker = TensorBoardTracker(run_name="tf_log",logging_dir="/kaggle/working/tf_logs"   # ghi được)    
+    tensorboard_tracker = TensorBoardTracker(run_name="tf_log",logging_dir="/kaggle/working/tf_logs" )    
     kwargs = DistributedDataParallelKwargs(find_unused_parameters=cfg.find_unused_parameters)
     accelerator = Accelerator(
         log_with=tensorboard_tracker,
