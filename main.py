@@ -86,11 +86,17 @@ def update_checkpoint_path(cfg: Config):
                     0]
             )
             cfg.resume_from_checkpoint = folders[-1]
+            if "checkpoints" in os.path.dirname(cfg.resume_from_checkpoint):
+                cfg.output_dir = os.path.dirname(os.path.dirname(cfg.resume_from_checkpoint))
         else:
-            # if there is not saved checkpoints, do not resume
-            cfg.resume_from_checkpoint = None
-
-    return cfg
+            # make sure all processes have same output directory
+            accelerate.utils.wait_for_everyone()
+            cfg.output_dir = os.path.join(
+                "checkpoints",
+                os.path.basename(cfg.model_path).split(".")[0],
+                "train",
+                datetime.datetime.now().strftime("%Y-%m-%d-%H_%M_%S"),
+            )
 
 
 def train():
