@@ -97,6 +97,7 @@ def update_checkpoint_path(cfg: Config):
                 "train",
                 datetime.datetime.now().strftime("%Y-%m-%d-%H_%M_%S"),
             )
+    return cfg
 
 
 def train():
