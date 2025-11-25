@@ -17,16 +17,16 @@ output_dir = None  # path to save checkpoints, default for None: checkpoints/{mo
 find_unused_parameters = False  # useful for debugging distributed training
 
 # define dataset for train
-coco_path = "/kaggle/input/ratdts/MD.v1i.coco"  # /PATH/TO/YOUR/COCODIR
+coco_path = "/kaggle/input/uavdts1/UAV.v3i.coco"  # /PATH/TO/YOUR/COCODIR
 train_dataset = CocoDetection(
-    img_folder=f"/kaggle/input/ratdts/MD.v1i.coco/train/img",
-    ann_file=f"/kaggle/input/ratdts/MD.v1i.coco/train/_annotations.coco.json",
+    img_folder=f"/kaggle/input/uavdts1/UAV.v3i.coco/train/img",
+    ann_file=f"/kaggle/working/fix_annotations_train.coco.json",
     transforms=presets.detr,  # see transforms/presets to choose a transform
     train=True,
 )
 test_dataset = CocoDetection(
-    img_folder=f"/kaggle/input/ratdts/MD.v1i.coco/valid/img",
-    ann_file=f"/kaggle/input/ratdts/MD.v1i.coco/valid/_annotations.coco.json",
+    img_folder=f"/kaggle/input/uavdts1/UAV.v3i.coco/valid/img",
+    ann_file=f"/kaggle/working/fix_annotations_valid.coco.json",
     transforms=None,  # the eval_transform is integrated in the model
 )
 
@@ -36,7 +36,7 @@ model_path = "/kaggle/working/Relation-Detr/configs/relation_detr/relation_detr_
 # specify a checkpoint folder to resume, or a pretrained ".pth" to finetune, for example:
 # checkpoints/relation_detr_resnet50_800_1333/train/2024-03-22-09_38_50
 # checkpoints/relation_detr_resnet50_800_1333/train/2024-03-22-09_38_50/best_ap.pth
-resume_from_checkpoint = "/kaggle/input/ckp27-resnet50-rat/ckp27_relation_detr_rs50_27"
+resume_from_checkpoint = None
 
 learning_rate = 1e-4  # initial learning rate
 optimizer = optim.AdamW(lr=learning_rate, weight_decay=1e-4, betas=(0.9, 0.999))
