@@ -18,7 +18,7 @@ from models.necks.channel_mapper import ChannelMapper
 
 # mostly changed parameters
 embed_dim = 256
-num_classes = 2
+num_classes = 5
 num_queries = 900
 hybrid_num_proposals = 1500
 hybrid_assign = 6
@@ -34,7 +34,7 @@ position_embedding = PositionEmbeddingSine(
 )
 
 backbone = ResNetBackbone(
-    "resnet50", norm_layer=FrozenBatchNorm2d, return_indices=(1, 2, 3), freeze_indices=(0,)
+    "resnet18", norm_layer=FrozenBatchNorm2d, return_indices=(1, 2, 3), freeze_indices=(0,)
 )
 
 neck = ChannelMapper(
