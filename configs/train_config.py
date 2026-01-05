@@ -6,8 +6,8 @@ from transforms import presets
 from optimizer import param_dict
 # Commonly changed training configurations
 num_epochs = 50   # train epochs
-batch_size = 2   # total_batch_size = #GPU x batch_size
-num_workers = 2   # workers for pytorch DataLoader
+batch_size = 1   # total_batch_size = #GPU x batch_size
+num_workers = 1   # workers for pytorch DataLoader
 pin_memory = True # whether pin_memory for pytorch DataLoader
 print_freq = 50   # frequency to print logs
 starting_epoch = 0
