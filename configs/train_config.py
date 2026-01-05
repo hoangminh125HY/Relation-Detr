@@ -17,16 +17,16 @@ output_dir = None  # path to save checkpoints, default for None: checkpoints/{mo
 find_unused_parameters = False  # useful for debugging distributed training
 
 # define dataset for train
-coco_path = "/kaggle/input/heavy-rain/heavyRain.v1i.coco"  # /PATH/TO/YOUR/COCODIR
+coco_path = "/kaggle/input/mode-heavy-rain-dts/Moderate_heavy_rain"  # /PATH/TO/YOUR/COCODIR
 train_dataset = CocoDetection(
-    img_folder=f"/kaggle/input/heavy-rain/heavyRain.v1i.coco/train/img",
-    ann_file=f"/kaggle/input/heavy-rain/heavyRain.v1i.coco/train/anno/_annotations.coco.json",
+    img_folder=f"/kaggle/input/mode-heavy-rain-dts/Moderate_heavy_rain/train/img",
+    ann_file=f"/kaggle/input/mode-heavy-rain-dts/Moderate_heavy_rain/train/anno/_annotations.coco.json",
     transforms=presets.detr,  # see transforms/presets to choose a transform
-    train=True,
-)
+        train=True,
+    )
 test_dataset = CocoDetection(
-    img_folder=f"/kaggle/input/heavy-rain/heavyRain.v1i.coco/valid/img",
-    ann_file=f"/kaggle/input/heavy-rain/heavyRain.v1i.coco/valid/anno/_annotations.coco 09.06.47.json",
+    img_folder=f"/kaggle/input/mode-heavy-rain-dts/Moderate_heavy_rain/valid/img",
+    ann_file=f"/kaggle/input/mode-heavy-rain-dts/Moderate_heavy_rain/valid/anno/_annotations.coco 14.42.30.json",
     transforms=None,  # the eval_transform is integrated in the model
 )
 
